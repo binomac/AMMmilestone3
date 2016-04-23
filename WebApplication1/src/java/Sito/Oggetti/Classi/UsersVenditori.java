@@ -11,13 +11,20 @@ import java.util.ArrayList;
  *
  * @author luca
  */
-public class UsersVenditori {
+public class UsersVenditori extends Users {
+    private final static String UserType="Venditore";
     private Saldo credito= new Saldo(0);
     private ArrayList<ItemsVendita> InserzioniAperte = new ArrayList<ItemsVendita>();
     public UsersVenditori(){
         super();
     }
-
+    
+    /**
+     * @return the UserType
+     */
+    public static String getUserType() {
+        return UserType;
+    }
     /**
      * @return the credito
      */
@@ -43,6 +50,14 @@ public class UsersVenditori {
      * @param InserzioniAperte the InserzioniAperte to set
      */
     public void setInserzioniAperte(ArrayList<ItemsVendita> InserzioniAperte) {
+        this.InserzioniAperte = InserzioniAperte;
+    }
+    
+    public void addInserzione(ItemsVendita Inserzione) {
+        InserzioniAperte.add(Inserzione);
+    }
+    
+    public void deleteInserzione(int id) {
         this.InserzioniAperte = InserzioniAperte;
     }
 }

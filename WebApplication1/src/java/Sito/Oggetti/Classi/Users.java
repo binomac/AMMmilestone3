@@ -10,20 +10,22 @@ package Sito.Oggetti.Classi;
  * @author luca
  */
 public abstract class Users {
-    private int id;
-    private String nome;
-    private String cognome;
+    protected int id;
+    protected String nome;
+    protected String cognome;
     
-    private String username;
-    private String password;
+    protected String username;
+    protected String password;
+    private static int counter=0;
 
     /* Costruttore */
     public Users(){
-        id = 0;
-        nome = "";
+        id = counter;
+        nome = "user?";
         cognome = "";
         username="";
         password="";
+        counter++;
     }
 
     /**
@@ -61,13 +63,7 @@ public abstract class Users {
         return password;
     }
 
-    /**
-     * @param id the id to set
-     */
-    public void setId(int id) {
-        this.id = id;
-    }
-
+   
     /**
      * @param nome the nome to set
      */
@@ -96,4 +92,8 @@ public abstract class Users {
         this.password = password;
     }
     
+    public boolean areTheSame( int id){
+        if(this.getId()==id) return true ;
+        else return false;
+    }
 }

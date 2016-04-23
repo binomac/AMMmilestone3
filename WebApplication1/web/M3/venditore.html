@@ -25,7 +25,7 @@
         <div class="cForm">
             <h2>Vendi prodotto</h2>
             <h3>Crea inserzione</h3>
-            <form method="post" action="../Vendi">
+            <form method="post" action="Venditore">
                 <fieldset>
                     <legend>Informazioni prodotto</legend>
                     <label for="name">Nome oggetto:</label>
@@ -43,6 +43,7 @@
                     <label for="quantity">quantità:</label>
                     <input type="number" name="quantità" id="quantity" value="1" min='1' required="required"/>
                     <br/>
+                    <input type="hidden" name="cmd" value="inserimento"/>
                     <input type="submit" value="Vendi" class="sbutton"/>
                 </fieldset>
             </form>

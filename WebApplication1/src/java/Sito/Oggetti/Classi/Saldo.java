@@ -10,23 +10,41 @@ package Sito.Oggetti.Classi;
  * @author luca
  */
 public class Saldo {
-    private int conto;
-    public Saldo(int val){
+    private double conto;
+    private static int counter=0;
+    private int id;
+    public Saldo(double val){
         this.conto=val;
+        this.id=counter ;
+        counter++;
     }
 
     /**
      * @return the conto
      */
-    public int getConto() {
+    public double getConto() {
         return conto;
     }
 
     /**
      * @param conto the conto to set
      */
-    public void setConto(int conto) {
+    public void setConto(double conto) {
         this.conto = conto;
+    }
+
+    /**
+     * @return the id
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(int id) {
+        this.id = id;
     }
     
 }

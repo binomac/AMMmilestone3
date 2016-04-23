@@ -10,7 +10,15 @@ package Sito.Oggetti.Classi;
  * @author luca
  */
 public class UsersClienti extends Users {
+
+    /**
+     * @return the UserType
+     */
+    public static String getUserType() {
+        return UserType;
+    }
     private Saldo credito= new Saldo(0);
+    private static String UserType="Cliente";
     public UsersClienti(){
         super();
     }

@@ -10,7 +10,9 @@ package Sito.Oggetti.Classi;
  * @author luca
  */
 public class ItemsVendita {
+    private static int counter=0;
     private int id;
+    private String categoria;
     private String nome;
     private String URL;
     private String descrizione;
@@ -18,12 +20,14 @@ public class ItemsVendita {
     private int quantita;
     
     public ItemsVendita(){
-        id=0;
+        id=counter;
         nome="";
         URL="";
         descrizione="";
         prezzo=0.0;
         quantita=0;
+        categoria="none";
+        counter++;
     }
 
     /**
@@ -109,4 +113,26 @@ public class ItemsVendita {
     public void setQuantita(int quantita) {
         this.quantita = quantita;
     }
+
+    /**
+     * @return the categoria
+     */
+    public String getCategoria() {
+        return categoria;
+    }
+
+    /**
+     * @param categoria the categoria to set
+     */
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public boolean areTheSame(ItemsVendita oggetto, int id){
+        if(oggetto.getId()==id) return true ;
+        else return false;
+    }
+
+
+   
 }
