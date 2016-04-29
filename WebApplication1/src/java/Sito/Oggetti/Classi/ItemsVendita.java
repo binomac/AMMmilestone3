@@ -128,8 +128,8 @@ public class ItemsVendita {
         this.categoria = categoria;
     }
 
-    public boolean areTheSame(ItemsVendita oggetto, int id){
-        if(oggetto.getId()==id) return true ;
+    public boolean areTheSame(int id){
+        if(this.getId()==id) return true ;
         else return false;
     }
 

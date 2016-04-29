@@ -21,28 +21,28 @@ public class ItemsFactory {
     /**
      * @return the listaAuto
      */
-    public static ArrayList<ItemsVendita> getListaAuto() {
+    public ArrayList<ItemsVendita> getListaAuto() {
         return listaAuto;
     }
 
     /**
      * @return the listaMoto
      */
-    public static ArrayList<ItemsVendita> getListaMoto() {
+    public ArrayList<ItemsVendita> getListaMoto() {
         return listaMoto;
     }
 
     /**
      * @return the listaYatch
      */
-    public static ArrayList<ItemsVendita> getListaYatch() {
+    public ArrayList<ItemsVendita> getListaYatch() {
         return listaYatch;
     }
 
     /**
      * @return the listaBarche
      */
-    public static ArrayList<ItemsVendita> getListaBarche() {
+    public ArrayList<ItemsVendita> getListaBarche() {
         return listaBarche;
     }
     
@@ -63,7 +63,7 @@ public class ItemsFactory {
         */
         
         ItemsVendita auto1 = new ItemsVendita();
-        auto1.setCategoria("auto");
+        auto1.setCategoria("Auto");
         auto1.setNome("Alfa romeo");
         auto1.setPrezzo(33000);
         auto1.setDescrizione("");
@@ -72,7 +72,7 @@ public class ItemsFactory {
         
         ItemsVendita auto2 = new ItemsVendita();
         auto2.setId(1);
-        auto2.setCategoria("auto");
+        auto2.setCategoria("Auto");
         auto2.setNome("Fiat 500");
         auto2.setPrezzo(17500);
         auto2.setDescrizione("");
@@ -81,7 +81,7 @@ public class ItemsFactory {
         
          ItemsVendita auto3 = new ItemsVendita();
         auto3.setId(2);
-        auto3.setCategoria("auto");
+        auto3.setCategoria("Auto");
         auto3.setNome("Ferrari 488");
         auto3.setPrezzo(220000);
         auto3.setDescrizione("");
@@ -90,7 +90,7 @@ public class ItemsFactory {
         
          ItemsVendita auto4 = new ItemsVendita();
         auto4.setId(3);
-        auto4.setCategoria("auto");
+        auto4.setCategoria("Auto");
         auto4.setNome("Toyota Rav4");
         auto4.setPrezzo(37000);
         auto4.setDescrizione("");
@@ -99,7 +99,7 @@ public class ItemsFactory {
         
          ItemsVendita auto5 = new ItemsVendita();
         auto5.setId(4);
-        auto5.setCategoria("auto");
+        auto5.setCategoria("Auto");
         auto5.setNome("Mercedes classe c");
         auto5.setPrezzo(50000);
         auto5.setDescrizione("");

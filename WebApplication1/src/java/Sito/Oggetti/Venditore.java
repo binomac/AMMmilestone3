@@ -5,6 +5,7 @@
  */
 package Sito.Oggetti;
 
+import Sito.Oggetti.Classi.ItemsVendita;
 import Sito.Oggetti.Classi.Users;
 import Sito.Oggetti.Classi.UsersVenditori;
 import Sito.Oggetti.Classi.UsersClienti;
@@ -37,8 +38,9 @@ public class Venditore extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
        HttpSession session = request.getSession(false);
-   
-        if(session.getAttribute("loggedIn").equals(true)){
+       request.setAttribute("errorType", "");
+        
+        if(session.getAttribute("loggedIn")!= null && session.getAttribute("loggedIn").equals(true)){
             ArrayList<Users> listaUtenti = UsersFactory.getUserList();
             for(Users u : listaUtenti)
             {
@@ -48,13 +50,61 @@ public class Venditore extends HttpServlet {
             }
             if(session.getAttribute("UserVenditore")!= null){
                  if(request.getParameter("cmd")!= null && request.getParameter("cmd").equals("inserimento")){
-                     request.getRequestDispatcher("M3/descrizione.jsp").forward(request, response);
+                     int flag = 0;
+                     
+                     ItemsVendita inserito = new ItemsVendita();
+                     if(inserito==null){
+                         request.setAttribute("errorType", "inserimentoInserzione");
+                         request.setAttribute("errorCode", 0);
+                         flag++;
+                     }else{
+                         inserito.setNome(request.getParameter("nome"));
+                         if(inserito.getNome()==null || "".equals(inserito.getNome())){
+                             request.setAttribute("errorType", "inserimentoInserzione");
+                             request.setAttribute("errorCode", 1);
+                             flag++;
+                         }else{
+                             inserito.setQuantita(Integer.parseInt(request.getParameter("quantità")));
+                             if(inserito.getQuantita() <=0){
+                                 request.setAttribute("errorType", "inserimentoInserzione");
+                                 request.setAttribute("errorCode", 2);
+                                 flag++;
+                             }else{
+                                  inserito.setPrezzo(Double.parseDouble(request.getParameter("prezzo")));
+                                  if(inserito.getPrezzo()<=0.0){
+                                      request.setAttribute("errorType", "inserimentoInserzione");
+                                      request.setAttribute("errorCode", 3);
+                                      flag++;
+                                  }else{
+                                      inserito.setURL(request.getParameter("URL"));
+                                      if(inserito.getURL()==null || "".equals(inserito.getURL())){
+                                          request.setAttribute("errorType", "inserimentoInserzione");
+                                          request.setAttribute("errorCode", 4);
+                                          flag++;
+                                      }
+                                  }
+                             }
+                         }
+                     }
+                     if(flag>0) request.getRequestDispatcher("M3/venditore/venditore.jsp").forward(request, response);
+                     else{
+                         request.setAttribute("inserzione", inserito);
+                         request.getRequestDispatcher("M3/inserzione.jsp").forward(request, response);
+                     }
+                     
                  }else{
-                    request.getRequestDispatcher("M3/venditore.html").forward(request, response);
+                    request.getRequestDispatcher("M3/venditore/venditore.jsp").forward(request, response);
                  }
+            }
+            else{
+                request.setAttribute("errorType", "wrongUser");
+                request.setAttribute("errorCode", "1");
+                request.getRequestDispatcher("M3/venditore/venditore.jsp").forward(request, response);
             }
         }
         else {
+            request.setAttribute("errorType", "notLogged");
+            request.getRequestDispatcher("M3/login/Form_Login.jsp").forward(request, response);
         }
     }
 

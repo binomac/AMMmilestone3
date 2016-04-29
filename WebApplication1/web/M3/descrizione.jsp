@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,7 +15,7 @@
         <meta name="keywords" content ="commercio online, acquista, vendi, mezzi trasporto">
         <meta name="description" content="sito ufficiale MMT - cagliari,italia">
         <meta name="author" content="Luca Camboni">
-        <link href="M3/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+        <link href="/WebApplication1/M3/css/style.css" rel="stylesheet" type="text/css" media="screen" />
     </head>
     <body>
         <header>
@@ -22,14 +23,11 @@
             <h2>mercato mezzi trasporto</h2>          
             <nav>
                 <ul>
-                    <li class="currpag"><a href="descrizione.jsp">HOME</a></li>
-                    <li><a class="man" href="M3/Form_Login.jsp">Login</a></li>
-                    <li><a class="man" href="venditore.html">Vendi</a></li>
-                    <li><a class="man" href="cliente.html">Compra</a></li>
+                    <li class="currpag"><a href="/WebApplication1/M3/descrizione.jsp">HOME</a></li>
+                    <li><a class="man" href="/WebApplication1/Login">Login</a></li>
+                    <li><a class="man" href="/WebApplication1/Venditore">Vendi</a></li>
+                    <li><a class="man" href="/WebApplication1/Cliente">Compra</a></li>
                 </ul>
-                
-                
-                
             </nav>
         </header>
         <nav class="colL">

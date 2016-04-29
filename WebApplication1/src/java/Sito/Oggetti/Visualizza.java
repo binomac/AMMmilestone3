@@ -5,10 +5,11 @@
  */
 package Sito.Oggetti;
 
-import Sito.Oggetti.Classi.*;
-
+import Sito.Oggetti.Classi.ItemsFactory;
+import Sito.Oggetti.Classi.ItemsVendita;
+import Sito.Oggetti.Classi.UsersFactory;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +20,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author luca
  */
-public class Login extends HttpServlet {
+public class Visualizza extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,50 +34,43 @@ public class Login extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        HttpSession session = request.getSession(false);
+        ItemsFactory data;
+        UsersFactory arch= (UsersFactory)session.getAttribute("Archivio");
         
-        HttpSession session = request.getSession(true);
-        request.removeAttribute("errorType");
-        if(session.getAttribute("loggedIn") != null && session.getAttribute("loggedIn").equals(true)){
-                if(session.getAttribute("UserVenditore")!= null) request.getRequestDispatcher("M3/login/Logged_seller.jsp").forward(request, response);
-                else request.getRequestDispatcher("M3/login/Logged_buyer.jsp").forward(request, response);
-            }
-        else{
-        if(request.getParameter("Submit") != null)
-        {
-            
-            // Preleva i dati inviati
-            String username = request.getParameter("Username");
-            String password = request.getParameter("Password");
-            
-            session.setAttribute("Archivio",UsersFactory.getInstance());
-            
-            ArrayList<Users> listaUtenti = UsersFactory.getUserList();
-            for(Users u : listaUtenti)
-            {
-                if(u.getUsername().equals(username)&& u.getPassword().equals(password))
-                {
-                    session.setAttribute("loggedIn", true);
-                    session.setAttribute("id", u.getId());
-                    
-                    if(u instanceof UsersVenditori) 
-                    {
-                        session.setAttribute("UserVenditore", u);
-                        request.getRequestDispatcher("M3/login/Logged_seller.jsp").forward(request, response);
-                    }
-                    else
-                    {
-                        session.setAttribute("UserCliente", u);
-                        request.getRequestDispatcher("M3/login/Logged_buyer.jsp").forward(request, response);  
-                    }                    
+        data = (ItemsFactory)UsersFactory.getData();
+        
+        if(request.getParameter("cat").equals("Auto")){
+            for(ItemsVendita i : data.getListaAuto()){
+                if(i.areTheSame((int)Integer.parseInt(request.getParameter("id")))){
+                    request.setAttribute("inserzione", i);
                 }
             }
         }
-        else request.getRequestDispatcher("M3/login/Form_Login.jsp").forward(request, response);
+        if(request.getParameter("cat").equals("Moto")){
+            for(ItemsVendita i : data.getListaMoto()){
+                if(i.areTheSame((int)Integer.parseInt(request.getParameter("id")))){
+                    request.setAttribute("inserzione", i);
+                }
+            }
         }
+        if(request.getParameter("cat").equals("Yatch")){
+            for(ItemsVendita i : data.getListaYatch()){
+                if(i.areTheSame((int)Integer.parseInt(request.getParameter("id")))){
+                    request.setAttribute("inserzione", i);
+                }
+            }
+        }
+        if(request.getParameter("cat").equals("Barche")){
+            for(ItemsVendita i : data.getListaBarche()){
+                if(i.areTheSame((int)Integer.parseInt(request.getParameter("id")))){
+                    request.setAttribute("inserzione", i);
+                }
+            }
+        }
+        request.getRequestDispatcher("M3/struttura/inserzione.jsp").forward(request, response);
         
- 
     }
-    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
     <html>
@@ -14,7 +16,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="MMT - login">
         <meta name="author" content="Luca Camboni">
-        <link href="css/style.css" rel="stylesheet" type="text/css" media="screen" />
+        <link href="/WebApplication1/M3/css/style.css" rel="stylesheet" type="text/css" media="screen" />
     </head>
     <body>
         <header>
@@ -23,17 +25,17 @@
             <nav>
                 
                <ul>
-                   <li><a class="man" href="descrizione.html">HOME</a></li>
-                    <li class="currpag"><a href="login.html">Login</a></li>
-                    <li><a class="man" href="venditore.html">Vendi</a></li>
-                    <li><a class="man" href="cliente.html">Compra</a></li>
+                   <li><a class="man" href="/WebApplication1/M3/descrizione.jsp">HOME</a></li>
+                    <li class="currpag"><a href="/WebApplication1/Login">Login</a></li>
+                    <li><a class="man" href="/WebApplication1/Venditore">Vendi</a></li>
+                    <li><a class="man" href="/WebApplication1/Cliente">Compra</a></li>
                 </ul>
                 
             </nav>
         </header>
         <div class="cForm">
             <h2>Accedi</h2>
-            <form method="post" id="login" action="../Login">
+            <form method="post" id="login" action="Login">
                 <fieldset>
                     <legend>I tuoi dati</legend>
                     <label for="usr">Username:</label>
@@ -45,6 +47,9 @@
                 </fieldset>
             </form>
         </div>
+        <c:if test="${errorType != null }">
+            <jsp:include page="../struttura/errorPage.jsp" />
+        </c:if>
     </body>
 </html>
 </html>

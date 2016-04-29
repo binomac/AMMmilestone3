@@ -14,35 +14,42 @@ import java.util.ArrayList;
 public class UsersFactory {
      private static UsersFactory singleton;
      private static ArrayList<Users> listaUtenti;
+     private static ItemsFactory data ;
 
+    /**
+     * @return the data
+     */
+    public static ItemsFactory getData() {
+        return data;
+    }
     /* Costruttore */
     private UsersFactory() {
         listaUtenti = new ArrayList<Users>();
-        ItemsFactory data = ItemsFactory.GetIstance();
+        data = ItemsFactory.GetIstance();
         
         
         //venditori
         ArrayList<ItemsVendita> lista0= new ArrayList<ItemsVendita>();
         ArrayList<ItemsVendita> lista1= new ArrayList<ItemsVendita>();
-        for(ItemsVendita i:ItemsFactory.getListaAuto()){
+        for(ItemsVendita i: data.getListaAuto()){
             if(i.getId()%2==1){
                 lista0.add(i);
             }
             else lista1.add(i);
         }
-        for(ItemsVendita i:ItemsFactory.getListaMoto()){
+        for(ItemsVendita i: data.getListaMoto()){
             if(i.getId()%2==1){
                 lista0.add(i);
             }
             else lista1.add(i);
         }
-        for(ItemsVendita i:ItemsFactory.getListaYatch()){
+        for(ItemsVendita i: data.getListaYatch()){
             if(i.getId()%2==1){
                 lista0.add(i);
             }
             else lista1.add(i);
         }
-        for(ItemsVendita i:ItemsFactory.getListaBarche()){
+        for(ItemsVendita i: data.getListaBarche()){
             if(i.getId()%2==1){
                 lista0.add(i);
             }

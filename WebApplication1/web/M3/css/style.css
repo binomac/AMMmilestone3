@@ -40,7 +40,7 @@
         }
     }
 body {
-    background-image: url('../img/download.jpg') ;
+    background-image: url('/WebApplication1/M3/img/download.jpg') ;
     color: black;
     font-family: "Comic Sans MS", cursive, sans-serif ;
 }

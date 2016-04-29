@@ -14,7 +14,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="MMT - login">
         <meta name="author" content="Luca Camboni">
-        <link href="M3/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+        <link href="/WebApplication1/M3/css/style.css" rel="stylesheet" type="text/css" media="screen" />
     </head>
     <body>
         <header>
@@ -23,10 +23,10 @@
             <nav>
                 
                <ul>
-                   <li><a class="man" href="descrizione.html">HOME</a></li>
-                    <li class="currpag"><a href="login.html">Login</a></li>
-                    <li><a class="man" href="venditore.html">Vendi</a></li>
-                    <li><a class="man" href="cliente.html">Compra</a></li>
+                   <li><a class="man" href="/WebApplication1/M3/descrizione.jsp">HOME</a></li>
+                    <li class="currpag"><a href="/WebApplication1/Login">Login</a></li>
+                    <li><a class="man" href="/WebApplication1/Venditore">Vendi</a></li>
+                    <li><a class="man" href="/WebApplication1/Cliente">Compra</a></li>
                 </ul>
                 
             </nav>
@@ -38,5 +38,8 @@
                 il tuo saldo è di : ${UserCliente.credito.conto}
             </h3>
         </div>
+            <c:if test="${errorType != null || errorType!=''}">
+            <jsp:include page="../struttura/errorPage.jsp" />
+        </c:if>
     </body>
 </html>
