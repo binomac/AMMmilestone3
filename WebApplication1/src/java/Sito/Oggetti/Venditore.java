@@ -84,6 +84,7 @@ public class Venditore extends HttpServlet {
                                           request.setAttribute("errorCode", 4);
                                           flag++;
                                       }
+                                      else inserito.setDescrizione(request.getParameter("descrizione"));
                                   }
                              }
                          }
@@ -91,6 +92,7 @@ public class Venditore extends HttpServlet {
                      if(flag>0) request.getRequestDispatcher("M3/venditore/venditore.jsp").forward(request, response);
                      else{
                          request.setAttribute("inserzione", inserito);
+                         request.setAttribute("creato", true);
                          request.getRequestDispatcher("M3/struttura/inserzione.jsp").forward(request, response);
                      }
                      
