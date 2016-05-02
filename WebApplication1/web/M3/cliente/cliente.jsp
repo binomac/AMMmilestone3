@@ -106,7 +106,10 @@
                     </c:choose>
                         <td>${itemsVendita.nome}</td>
                         <td><img title="${itemsVendita.nome}" alt="${itemsVendita.nome}" src="/WebApplication1/M3/img/${itemsVendita.URL}" width="80" height="80"></td>
-                        <td><c:if test="${itemsVendita.quantita > 0}">disponibile</c:if></td>
+                        <td>
+                            <c:if test="${itemsVendita.quantita > 0}">disponibile</c:if>
+                            <c:if test="${itemsVendita.quantita < 1}">venduto!</c:if>
+                        </td>
                         <td>${itemsVendita.prezzo} €</td>
                         <td class="cart"><a href="/WebApplication1/Visualizza?id=${itemsVendita.id}&cat=${itemsVendita.categoria}">Visualizza</a></td>
                     </tr>
@@ -135,7 +138,10 @@
                     </c:choose>
                         <td>${itemsVendita.nome}</td>
                         <td><img title="${itemsVendita.nome}" alt="${itemsVendita.nome}" src="/WebApplication1/M3/img/${itemsVendita.URL}" width="80" height="80"></td>
-                        <td><c:if test="${itemsVendita.quantita > 0}">disponibile</c:if></td>
+                        <td>
+                            <c:if test="${itemsVendita.quantita > 0}">disponibile</c:if>
+                            <c:if test="${itemsVendita.quantita < 1}">venduto!</c:if>
+                        </td>
                         <td>${itemsVendita.prezzo} €</td>
                         <td class="cart"><a href="/WebApplication1/Visualizza?id=${itemsVendita.id}&cat=${itemsVendita.categoria}">Visualizza</a></td>
                     </tr>
@@ -160,7 +166,10 @@
                     </c:choose>
                         <td>${itemsVendita.nome}</td>
                         <td><img title="${itemsVendita.nome}" alt="${itemsVendita.nome}" src="/WebApplication1/M3/img/${itemsVendita.URL}" width="80" height="80"></td>
-                        <td><c:if test="${itemsVendita.quantita > 0}">disponibile</c:if></td>
+                        <td>
+                            <c:if test="${itemsVendita.quantita > 0}">disponibile</c:if>
+                            <c:if test="${itemsVendita.quantita < 1}">venduto!</c:if>
+                        </td>
                         <td>${itemsVendita.prezzo} €</td>
                         <td class="cart"><a href="/WebApplication1/Visualizza?id=${itemsVendita.id}&cat=${itemsVendita.categoria}">Visualizza</a></td>
                     </tr>

@@ -33,7 +33,7 @@
         </header>
         <div class="cForm">
             <h2>Area Riservata</h2>
-            <h3>Bentornato , ${UserCliente.nome}, ${UserCliente.cognome}
+            <h3>Bentornato ${UserCliente.nome} ${UserCliente.cognome}
                 <br>
                 il tuo saldo è di : ${UserCliente.credito.conto}
             </h3>
