@@ -66,5 +66,7 @@
         <c:if test="${errorType != null }">
             <jsp:include page="../struttura/errorPage.jsp" />
         </c:if>
+                
+                      
     </body>
 </html>

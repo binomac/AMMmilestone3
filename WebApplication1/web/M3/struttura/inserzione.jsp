@@ -31,16 +31,17 @@
                 
             </nav>
         </header>
-        
+        <div class="container">
         <table class="singleRow">
-                <tr>
+                <thead>
                     <th>Nome</th>
                     <th class="foto">Foto</th>
                     <th>Disponibilità</th>
                     <th>Prezzo</th>
                     <c:if test="${UserCliente != null}"><th>Compra</th></c:if>
                     <c:if test="${UserVenditore != null}"><th>Modifica</th></c:if>
-                </tr>
+                </thead>
+                <tbody>
                    <tr class="d">
                         <td>${inserzione.nome}</td>
                         <td><img title="${inserzione.nome}" alt="${inserzione.nome}" src="/WebApplication1/M3/img/${inserzione.URL}" width="80" height="80"></td>
@@ -56,8 +57,14 @@
                         <c:if test="${UserVenditore != null}"><td>coming soon</td></c:if>
                         
                     </tr>
-                
+                    
+                </tbody>
+             
             </table> 
+        <p>${inserzione.descrizione}<p>
+        </div>
+                        
+        
                         
         <c:if test="${errorType != null }">
             <jsp:include page="../struttura/errorPage.jsp" />

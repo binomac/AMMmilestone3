@@ -66,7 +66,7 @@ public class ItemsFactory {
         auto1.setCategoria("Auto");
         auto1.setNome("Alfa romeo");
         auto1.setPrezzo(33000);
-        auto1.setDescrizione("");
+        auto1.setDescrizione("usato pari a nuovo come da foto.\n trasporto immediato senza possibilità di reso .");
         auto1.setURL("alfaRomeo.jpg");
         auto1.setQuantita(1);
         
@@ -75,7 +75,7 @@ public class ItemsFactory {
         auto2.setCategoria("Auto");
         auto2.setNome("Fiat 500");
         auto2.setPrezzo(17500);
-        auto2.setDescrizione("");
+        auto2.setDescrizione("usato pari a nuovo come da foto.\n trasporto immediato senza possibilità di reso .");
         auto2.setURL("fiat500.jpg");
         auto2.setQuantita(1);
         
@@ -84,7 +84,7 @@ public class ItemsFactory {
         auto3.setCategoria("Auto");
         auto3.setNome("Ferrari 488");
         auto3.setPrezzo(220000);
-        auto3.setDescrizione("");
+        auto3.setDescrizione("usato pari a nuovo come da foto.\n trasporto immediato senza possibilità di reso .");
         auto3.setURL("ferrari488.jpg");
         auto3.setQuantita(1);
         
@@ -93,7 +93,7 @@ public class ItemsFactory {
         auto4.setCategoria("Auto");
         auto4.setNome("Toyota Rav4");
         auto4.setPrezzo(37000);
-        auto4.setDescrizione("");
+        auto4.setDescrizione("usato pari a nuovo come da foto.\n trasporto immediato senza possibilità di reso .");
         auto4.setURL("toyota_rav4.jpg");
         auto4.setQuantita(1);
         
@@ -102,7 +102,7 @@ public class ItemsFactory {
         auto5.setCategoria("Auto");
         auto5.setNome("Mercedes classe c");
         auto5.setPrezzo(50000);
-        auto5.setDescrizione("");
+        auto5.setDescrizione("usato pari a nuovo come da foto.\n trasporto immediato senza possibilità di reso .");
         auto5.setURL("mercedes_classC.jpg");
         auto5.setQuantita(1);
         
@@ -118,7 +118,7 @@ public class ItemsFactory {
         
         ItemsVendita moto1 = new ItemsVendita();
         moto1.setCategoria("Moto");
-        moto1.setDescrizione("");
+        moto1.setDescrizione("usato pari a nuovo come da foto.\n trasporto immediato senza possibilità di reso .");
         moto1.setId(5);
         moto1.setNome("Bmw r1100");
         moto1.setPrezzo(50000);
@@ -127,7 +127,7 @@ public class ItemsFactory {
         
         ItemsVendita moto2 = new ItemsVendita();
         moto2.setCategoria("Moto");
-        moto2.setDescrizione("");
+        moto2.setDescrizione("usato pari a nuovo come da foto.\n trasporto immediato senza possibilità di reso .");
         moto2.setId(6);
         moto2.setNome("Ducati 748");
         moto2.setPrezzo(120000);
@@ -146,7 +146,7 @@ public class ItemsFactory {
         yatch1.setCategoria("Yatch");
         yatch1.setNome("Saramour 46m");
         yatch1.setPrezzo(1110000);
-        yatch1.setDescrizione("");
+        yatch1.setDescrizione("usato pari a nuovo come da foto.\n trasporto immediato senza possibilità di reso .");
         yatch1.setQuantita(1);
         yatch1.setURL("saramour.jpg");
         
@@ -160,7 +160,7 @@ public class ItemsFactory {
         barca1.setCategoria("Barche");
         barca1.setNome("Bsc 570");
         barca1.setPrezzo(7000);
-        barca1.setDescrizione("");
+        barca1.setDescrizione("usato pari a nuovo come da foto.\n trasporto immediato senza possibilità di reso .");
         barca1.setQuantita(1);
         barca1.setURL("bsc570.jpg");
         
@@ -169,7 +169,7 @@ public class ItemsFactory {
         barca2.setCategoria("Barche");
         barca2.setNome("Chaparral 275");
         barca2.setPrezzo(41600);
-        barca2.setDescrizione("");
+        barca2.setDescrizione("usato pari a nuovo come da foto.\n trasporto immediato senza possibilità di reso .");
         barca2.setQuantita(1);
         barca2.setURL("chaparral275.jpg");
         

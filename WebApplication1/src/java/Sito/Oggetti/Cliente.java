@@ -86,6 +86,7 @@ public class Cliente extends HttpServlet {
                         if(credito.getConto() >= corrente.getPrezzo()){
                             credito.setConto(credito.getConto() - corrente.getPrezzo() );
                             corrente.setQuantita(corrente.getQuantita() - 1);
+                            request.setAttribute("venduto", true);
                             request.getRequestDispatcher("M3/login/Logged_buyer.jsp").forward(request, response);
                         }
                         else{

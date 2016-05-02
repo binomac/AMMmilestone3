@@ -41,5 +41,10 @@
             <c:if test="${errorType != null}">
             <jsp:include page="../struttura/errorPage.jsp" />
         </c:if>
+        <c:if test="${venduto != null && venduto== true }">
+            <div class="annuncio">
+                Acquisto Effettuato
+            </div>    
+        </c:if>
     </body>
 </html>
