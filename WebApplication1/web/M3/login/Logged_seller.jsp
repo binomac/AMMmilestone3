@@ -48,8 +48,12 @@
                     <th>Prezzo</th>
                     <th>Modifica</th>
                 </tr>
+                <c:set var="counter" value="0"/>
                 <c:forEach var="itemsVendita" items="${UserVenditore.inserzioniAperte}">
-                   <tr class="d">
+                    <c:choose>
+                        <c:when test="${counter == 0}"><tr class="p"><c:set var="counter" value="1"/></c:when>
+                        <c:when test="${counter == 1}"><tr class="d"><c:set var="counter" value="0"/></c:when>
+                    </c:choose>
                         <td>${itemsVendita.nome}</td>
                         <td><img title="${itemsVendita.nome}" alt="${itemsVendita.nome}" src="M3/img/${itemsVendita.URL}" width="80" height="80"></td>
                         <td><c:if test="${itemsVendita.quantita > 0}">disponibile</c:if></td>
@@ -60,7 +64,7 @@
             </table> 
         </div>
         <c:if test="${errorType != null }">
-            <jsp:include page="/WebApplication1/M3/struttura/errorPage.jsp" />
+            <jsp:include page="../struttura/errorPage.jsp" />
         </c:if>
     </body>
 </html>

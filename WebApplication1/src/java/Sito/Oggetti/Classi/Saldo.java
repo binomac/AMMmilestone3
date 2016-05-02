@@ -13,6 +13,7 @@ public class Saldo {
     private double conto;
     private static int counter=0;
     private int id;
+    
     public Saldo(double val){
         this.conto=val;
         this.id=counter ;

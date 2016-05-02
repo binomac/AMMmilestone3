@@ -38,7 +38,7 @@
                 il tuo saldo è di : ${UserCliente.credito.conto}
             </h3>
         </div>
-            <c:if test="${errorType != null || errorType!=''}">
+            <c:if test="${errorType != null}">
             <jsp:include page="../struttura/errorPage.jsp" />
         </c:if>
     </body>

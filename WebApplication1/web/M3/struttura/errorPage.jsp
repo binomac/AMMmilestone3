@@ -7,12 +7,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <div class="error">
-    <h1>! Errore !</h1>
-    <h2>
-        
+    
+        <h1>! Errore !</h1>
+            <h2>
             <c:choose>
                 <c:when test="${errorType == 'inserimentoInserzione'}" >
-                    L'inserzione ha riscontrato preoblemi;
+                    L'inserzione ha riscontrato problemi;
                     <h3>
                     <c:choose>
                         
@@ -20,7 +20,7 @@
                             Errore nella creazione dell'inserzione
                         </c:when>
                         <c:when test="${errorCode == 1}">
-                            L'username non è stato impostato correttamente
+                            Il nome non è stato impostato correttamente
                         </c:when>
                         <c:when test="${errorCode == 2}">
                              La quantità non è stata impostata correttamente
@@ -50,6 +50,19 @@
                     </c:choose>
                     </h3>
                 </c:when>
+                <c:when test="${errorType == 'transazione'}">
+                    Errore durante l'acquisto
+                    <h3>
+                    <c:choose>
+                        <c:when test="${errorCode == 1}">
+                            Il tuo credito non è suficente per completare la transazione
+                        </c:when>
+                        <c:when test="${errorCode == 2}">
+                            L'inserzione richiesta non esiste
+                        </c:when>
+                    </c:choose>
+                    </h3>
+                </c:when>   
                 <c:when test="${errorType == 'notLogged'}">
                         Devi prima accedere alla tua area riservata per visitare questa pagina
                 </c:when>

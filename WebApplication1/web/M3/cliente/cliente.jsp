@@ -68,11 +68,20 @@
                     <th>Prezzo</th>
                     <th>Modifica</th>
                 </tr>
+                <c:set var="counter" value="0"/>
                 <c:forEach var="itemsVendita" items="${listaOggetti.listaAuto}">
-                   <tr class="d">
+                    
+                    <c:choose>
+                        <c:when test="${counter == 0}"><tr class="p"><c:set var="counter" value="1"/></c:when>
+                        <c:when test="${counter == 1}"><tr class="d"><c:set var="counter" value="0"/></c:when>
+                    </c:choose>
+                    
                         <td>${itemsVendita.nome}</td>
                         <td><img title="${itemsVendita.nome}" alt="${itemsVendita.nome}" src="/WebApplication1/M3/img/${itemsVendita.URL}" width="80" height="80"></td>
-                        <td><c:if test="${itemsVendita.quantita > 0}">disponibile</c:if></td>
+                        <td>
+                            <c:if test="${itemsVendita.quantita > 0}">disponibile</c:if>
+                            <c:if test="${itemsVendita.quantita < 1}">venduto!</c:if>
+                        </td>
                         <td>${itemsVendita.prezzo} €</td>
                         <td class="cart"><a href="/WebApplication1/Visualizza?id=${itemsVendita.id}&cat=${itemsVendita.categoria}">Visualizza</a></td>
                     </tr>
@@ -91,7 +100,10 @@
                     <th>Modifica</th>
                 </tr>
                 <c:forEach var="itemsVendita" items="${listaOggetti.listaMoto}">
-                   <tr class="d">
+                    <c:choose>
+                        <c:when test="${counter == 0}"><tr class="p"><c:set var="counter" value="1"/></c:when>
+                        <c:when test="${counter == 1}"><tr class="d"><c:set var="counter" value="0"/></c:when>
+                    </c:choose>
                         <td>${itemsVendita.nome}</td>
                         <td><img title="${itemsVendita.nome}" alt="${itemsVendita.nome}" src="/WebApplication1/M3/img/${itemsVendita.URL}" width="80" height="80"></td>
                         <td><c:if test="${itemsVendita.quantita > 0}">disponibile</c:if></td>
@@ -117,7 +129,10 @@
                     <th>Modifica</th>
                 </tr>
                 <c:forEach var="itemsVendita" items="${listaOggetti.listaYatch}">
-                   <tr class="d">
+                    <c:choose>
+                        <c:when test="${counter == 0}"><tr class="p"><c:set var="counter" value="1"/></c:when>
+                        <c:when test="${counter == 1}"><tr class="d"><c:set var="counter" value="0"/></c:when>
+                    </c:choose>
                         <td>${itemsVendita.nome}</td>
                         <td><img title="${itemsVendita.nome}" alt="${itemsVendita.nome}" src="/WebApplication1/M3/img/${itemsVendita.URL}" width="80" height="80"></td>
                         <td><c:if test="${itemsVendita.quantita > 0}">disponibile</c:if></td>
@@ -139,7 +154,10 @@
                 </tr>
                 <c:forEach var="itemsVendita" items="${listaOggetti.listaBarche}">
                     
-                   <tr class="d">
+                   <c:choose>
+                        <c:when test="${counter == 0}"><tr class="p"><c:set var="counter" value="1"/></c:when>
+                        <c:when test="${counter == 1}"><tr class="d"><c:set var="counter" value="0"/></c:when>
+                    </c:choose>
                         <td>${itemsVendita.nome}</td>
                         <td><img title="${itemsVendita.nome}" alt="${itemsVendita.nome}" src="/WebApplication1/M3/img/${itemsVendita.URL}" width="80" height="80"></td>
                         <td><c:if test="${itemsVendita.quantita > 0}">disponibile</c:if></td>

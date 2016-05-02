@@ -81,7 +81,7 @@ public class UsersFactory {
         cliente1.setPassword("1");
         cliente1.setNome("carlo");
         cliente1.setCognome("compra");
-        cliente1.setCredito(new Saldo(0));
+        cliente1.setCredito(new Saldo(100234.98));
         listaUtenti.add(cliente1);
         
         UsersClienti cliente2 = new UsersClienti();

@@ -50,16 +50,71 @@ public class Cliente extends HttpServlet {
             }
             if(session.getAttribute("UserCliente")!= null){
                 
-                request.setAttribute("listaOggetti", data);
-                request.getRequestDispatcher("M3/cliente/cliente.jsp").forward(request, response);
+                if(request.getParameter("cmd") != null && request.getParameter("cmd").equals("buy")){
+                    ItemsVendita corrente = null;
+                    if(request.getParameter("cat").equals("Auto")){
+                        for(ItemsVendita i : data.getListaAuto()){
+                            if(i.areTheSame((int)Integer.parseInt(request.getParameter("id")))){
+                                corrente= i;
+                            }
+                        }
+                    }
+                    if(request.getParameter("cat").equals("Moto")){
+                        for(ItemsVendita i : data.getListaMoto()){
+                            if(i.areTheSame((int)Integer.parseInt(request.getParameter("id")))){
+                                corrente=i;
+                            }
+                        }
+                    }
+                    if(request.getParameter("cat").equals("Yatch")){
+                        for(ItemsVendita i : data.getListaYatch()){
+                            if(i.areTheSame((int)Integer.parseInt(request.getParameter("id")))){
+                                corrente=i;
+                            }
+                        }
+                    }
+                    if(request.getParameter("cat").equals("Barche")){
+                        for(ItemsVendita i : data.getListaBarche()){
+                            if(i.areTheSame((int)Integer.parseInt(request.getParameter("id")))){
+                                corrente=i;
+                            }
+                        }
+                    }
+                    if(corrente != null){
+                        UsersClienti utente = (UsersClienti)session.getAttribute("UserCliente");
+                        Saldo credito = utente.getCredito();
+                        if(credito.getConto() >= corrente.getPrezzo()){
+                            credito.setConto(credito.getConto() - corrente.getPrezzo() );
+                            corrente.setQuantita(corrente.getQuantita() - 1);
+                            request.getRequestDispatcher("M3/login/Logged_buyer.jsp").forward(request, response);
+                        }
+                        else{
+                            request.setAttribute("errorType", "transazione");
+                            request.setAttribute("errorCode", "1");
+                            request.getRequestDispatcher("Visualizza?cat=" + corrente.getCategoria() + "&id=" + corrente.getId() ).forward(request, response);
+                        }
+                    }
+                    else{
+                        request.setAttribute("errorType", "transazione");
+                        request.setAttribute("errorCode", "2");
+                        request.getRequestDispatcher("M3/login/Logged_buyer.jsp").forward(request, response);
+                    }
+                }
+                else{
+                    request.setAttribute("listaOggetti", data);
+                    request.getRequestDispatcher("M3/cliente/cliente.jsp").forward(request, response);
+                }
             }
             else{
-                request.getRequestDispatcher("M3/struttura/errorPage.jsp").forward(request, response);
+                request.setAttribute("errorType", "wrongUser");
+                request.setAttribute("errorCode", "1");
+                request.getRequestDispatcher("M3/login/Logged_seller.jsp").forward(request, response);
             }
             
         }
         else {
-            request.getRequestDispatcher("Login").forward(request, response);
+            request.setAttribute("errorType", "notLogged");
+            request.getRequestDispatcher("M3/login/Form_Login.jsp").forward(request, response);
         }
     }
 

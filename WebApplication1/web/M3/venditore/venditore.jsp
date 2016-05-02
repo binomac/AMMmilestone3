@@ -46,10 +46,10 @@
                     <textarea name="descrizione" id="descr" rows="4" cols="20" >Descrizione oggetto</textarea>
                     <br/>
                     <label for="price">Prezzo:</label>
-                    <input type="number" name="prezzo" id="price" value="0.00" min='0.01' required="required"/>
+                    <input type="text" name="prezzo" id="price" value="0.00"/>
                     <br/>
                     <label for="quantity">quantità:</label>
-                    <input type="number" name="quantità" id="quantity" value="1" min='1' required="required"/>
+                    <input type="number" name="quantita" id="quantity" value="1" />
                     <br/>
                     <input type="hidden" name="cmd" value="inserimento"/>
                     <input type="submit" value="Vendi" class="sbutton"/>

@@ -38,7 +38,7 @@ public class Venditore extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
        HttpSession session = request.getSession(false);
-       request.setAttribute("errorType", "");
+     
         
         if(session.getAttribute("loggedIn")!= null && session.getAttribute("loggedIn").equals(true)){
             ArrayList<Users> listaUtenti = UsersFactory.getUserList();
@@ -64,19 +64,21 @@ public class Venditore extends HttpServlet {
                              request.setAttribute("errorCode", 1);
                              flag++;
                          }else{
-                             inserito.setQuantita(Integer.parseInt(request.getParameter("quantità")));
+                             inserito.setQuantita(Integer.parseInt(request.getParameter("quantita")));
                              if(inserito.getQuantita() <=0){
                                  request.setAttribute("errorType", "inserimentoInserzione");
                                  request.setAttribute("errorCode", 2);
                                  flag++;
                              }else{
-                                  inserito.setPrezzo(Double.parseDouble(request.getParameter("prezzo")));
+                                 String numero= request.getParameter("prezzo");
+                                 numero = numero.replace(",",".");
+                                  inserito.setPrezzo(Double.parseDouble(numero));
                                   if(inserito.getPrezzo()<=0.0){
                                       request.setAttribute("errorType", "inserimentoInserzione");
                                       request.setAttribute("errorCode", 3);
                                       flag++;
                                   }else{
-                                      inserito.setURL(request.getParameter("URL"));
+                                      inserito.setURL(request.getParameter("foto"));
                                       if(inserito.getURL()==null || "".equals(inserito.getURL())){
                                           request.setAttribute("errorType", "inserimentoInserzione");
                                           request.setAttribute("errorCode", 4);
@@ -89,7 +91,7 @@ public class Venditore extends HttpServlet {
                      if(flag>0) request.getRequestDispatcher("M3/venditore/venditore.jsp").forward(request, response);
                      else{
                          request.setAttribute("inserzione", inserito);
-                         request.getRequestDispatcher("M3/inserzione.jsp").forward(request, response);
+                         request.getRequestDispatcher("M3/struttura/inserzione.jsp").forward(request, response);
                      }
                      
                  }else{
@@ -98,8 +100,8 @@ public class Venditore extends HttpServlet {
             }
             else{
                 request.setAttribute("errorType", "wrongUser");
-                request.setAttribute("errorCode", "1");
-                request.getRequestDispatcher("M3/venditore/venditore.jsp").forward(request, response);
+                request.setAttribute("errorCode", "2");
+                request.getRequestDispatcher("M3/login/Logged_buyer.jsp").forward(request, response);
             }
         }
         else {

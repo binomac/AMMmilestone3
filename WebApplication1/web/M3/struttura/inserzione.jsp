@@ -38,16 +38,30 @@
                     <th class="foto">Foto</th>
                     <th>Disponibilità</th>
                     <th>Prezzo</th>
-                    <th>Modifica</th>
+                    <c:if test="${UserCliente != null}"><th>Compra</th></c:if>
+                    <c:if test="${UserVenditore != null}"><th>Modifica</th></c:if>
                 </tr>
                    <tr class="d">
                         <td>${inserzione.nome}</td>
                         <td><img title="${inserzione.nome}" alt="${inserzione.nome}" src="/WebApplication1/M3/img/${inserzione.URL}" width="80" height="80"></td>
-                        <td><c:if test="${inserzione.quantita > 0}">disponibile</c:if></td>
+                        <td>
+                            <c:if test="${inserzione.quantita > 0}">disponibile</c:if>
+                            <c:if test="${inserzione.quantita < 1}">non disponibile</c:if>
+                        </td>
                         <td>${inserzione.prezzo} €</td>
-                        <td class="cart"><a href="/WebApplication1/Visualizza?id=${inserzione.id}&cat=${inserzione.categoria}">Visualizza</a></td>
+                        <c:if test="${UserCliente != null && inserzione.quantita > 0}">
+                            <td class="cart"><a href="/WebApplication1/Cliente?cmd=buy&id=${inserzione.id}&cat=${inserzione.categoria}">Conferma</a></td>
+                        </c:if>
+                        <c:if test="${UserCliente != null && inserzione.quantita < 1}"><td></td></c:if>
+                        <c:if test="${UserVenditore != null}"><td>coming soon</td></c:if>
+                        
                     </tr>
                 
             </table> 
+                        
+        <c:if test="${errorType != null }">
+            <jsp:include page="../struttura/errorPage.jsp" />
+        </c:if>
+    </body>
                         
 </html>

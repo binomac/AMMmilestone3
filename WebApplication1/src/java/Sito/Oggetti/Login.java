@@ -35,7 +35,6 @@ public class Login extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         
         HttpSession session = request.getSession(true);
-        request.removeAttribute("errorType");
         if(session.getAttribute("loggedIn") != null && session.getAttribute("loggedIn").equals(true)){
                 if(session.getAttribute("UserVenditore")!= null) request.getRequestDispatcher("M3/login/Logged_seller.jsp").forward(request, response);
                 else request.getRequestDispatcher("M3/login/Logged_buyer.jsp").forward(request, response);
