@@ -69,6 +69,9 @@ public class Login extends HttpServlet {
                     }                    
                 }
             }
+            request.setAttribute("errorType", "autenticazione");
+            request.getRequestDispatcher("M3/login/Form_Login.jsp").forward(request, response);
+            
         }
         else request.getRequestDispatcher("M3/login/Form_Login.jsp").forward(request, response);
         }

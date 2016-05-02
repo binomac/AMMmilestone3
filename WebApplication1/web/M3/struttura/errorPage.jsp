@@ -66,6 +66,9 @@
                 <c:when test="${errorType == 'notLogged'}">
                         Devi prima accedere alla tua area riservata per visitare questa pagina
                 </c:when>
+                <c:when test="${errorType == 'autenticazione'}">
+                    Account non registrato nel server
+                </c:when>
             </c:choose>
         
     </h2>

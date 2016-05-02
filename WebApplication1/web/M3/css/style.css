@@ -186,6 +186,16 @@ table {
     border-color: black;
     width: 80%; 
     min-width: 500px;
+    margin: auto;
+}
+table.singleRow {
+    border: 1px solid;
+    border-collapse: collapse;
+    border-color: black;
+    width: 80%; 
+    min-width: 500px;
+    margin: auto;
+    margin-top: 1.5%;
 }
 th {
     text-align: center;

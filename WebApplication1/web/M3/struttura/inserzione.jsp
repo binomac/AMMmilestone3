@@ -32,7 +32,7 @@
             </nav>
         </header>
         
-        <table>
+        <table class="singleRow">
                 <tr>
                     <th>Nome</th>
                     <th class="foto">Foto</th>
